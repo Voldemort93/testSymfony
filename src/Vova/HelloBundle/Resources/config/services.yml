@@ -1,0 +1,4 @@
+services:
+#    vova_hello.example:
+#        class: Vova\HelloBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

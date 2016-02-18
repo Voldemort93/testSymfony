@@ -1,0 +1,3 @@
+vova_hello_homepage:
+    type: annotation
+    resource: "@VovaHelloBundle/Controller"

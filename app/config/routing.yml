@@ -1,0 +1,12 @@
+db:
+    resource: "@dbBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+vova_hello:
+    resource: "@VovaHelloBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
