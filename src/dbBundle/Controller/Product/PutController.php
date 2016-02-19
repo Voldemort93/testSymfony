@@ -14,42 +14,32 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use dbBundle\Entity\Product;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Request;
 
 class PutController extends Controller
 {
     /**
      * @Route("/product/{id}")
      * @Method ("PUT")
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function updateAction($id)
+    public function updateAction(Request $request, $id)
     {
-
+        $json=json_decode($request->getContent(),true);
         /**@var Product $product  */
         $product = new Product();
-
-        $json[]=array(
-            'name' => 'NEW NEW NEW',
-            'price' => '1255.00',
-            'description' => 'from put method'
-        );
 
         $em = $this->getDoctrine()->getManager();
         $product = $em->getRepository('dbBundle:Product')->find($id);
 
-        if (!$product) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
+        $product
+            ->setName($json['name'])
+            ->setPrice($json['price'])
+            ->setDescription($json['description']);
 
-        foreach ($json as $j) {
-            $product->setName($j['name']);
-            $product->setPrice($j['price']);
-            $product->setDescription($j['description']);
-        }
         $em->flush();
 
-//        return $this->redirectToRoute('homepage');
         return new JsonResponse(array());
     }
 }

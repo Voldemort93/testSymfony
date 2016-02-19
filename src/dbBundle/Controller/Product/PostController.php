@@ -27,6 +27,7 @@ class PostController extends Controller
     public function createAction(Request $request)
     {
         $json=json_decode($request->getContent(),true);
+
         /**@var Product $product  */
         $product = new Product();
 

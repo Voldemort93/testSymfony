@@ -13,12 +13,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use dbBundle\Entity\Product;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Request;
 
 class DeleteController extends Controller
 {
     /**
      * @Route("/product/{id}")
      * @Method ("DELETE")
+     * @param Request $request
+     * @return JsonResponse
      */
     public function DeleteAction($id)
     {
