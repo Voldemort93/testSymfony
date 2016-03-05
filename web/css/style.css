@@ -1,18 +1,3 @@
-body {
-    background: gray;
-}
-
-table {
-    border-collapse: collapse;
-    margin: 20px;
-    /*background: green;*/
-}
-
-td,th {
-    color: #fff;
-    border: 1px solid black;
-}
-
-th {
-    background: #636363;
+a {
+    color: #4B3636;
 }
