@@ -1,1 +1,89 @@
-Hello World!
+{# app/Resources/views/default/base.html.twig #}
+{% block head %}
+        {% block stylesheets %}
+                <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+        {% endblock %}
+{% endblock %}
+
+{% block body %}
+        <div id="content"></div>
+
+        {% block javascripts %}
+                <script src="{{ asset('js/jquery-1.12.0.min.js') }}"></script>
+                <script src="{{ asset('js/underscore-min.js') }}"></script>
+                <script src="{{ asset('js/backbone-min.js') }}"></script>
+                <script type="text/template" id="tplMain">
+                        <table>
+                                <thead>
+                                        <tr>
+                                                <th>Название</th>
+                                                <th>Цена</th>
+                                                <th>Описание</th>
+                                                <th colspan='2'>Операции</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                                <tfoot>
+                                        <tr>
+                                                <td colspan="5">
+                                                        <a href="#new">Добавить</a>
+                                                </td>
+                                        </tr>
+                                </tfoot>
+                        </table>
+                </script>
+                <script type="text/template" id="tplGet">
+                        <td name="name<%= id %>"> <%= name %> </td>
+                        <td name="price<%= id %>"> <%= price %>  </td>
+                        <td name="description<%= id %>"> <%= description %></td>
+                        <td><a href="#edit/<%= id %>">Редактировать</a></td>
+                        <td><a data-id="<%=id%>" data-bind="del">Удалить</a></td>
+                </script>
+                <script type="text/template" id="tplAddProduct">
+                        <a href="#">Назад</a>
+                        <% if(!edit) { %>
+                        <h1>Добавить новую модель</h1>
+                        <% } else { %>
+                        <h1>Редактировать модель</h1>
+                        <% } %>
+                        <form id="addProduct">
+                                <div style="margin-bottom: 5px;">
+                                        <label for="name">Название: </label>
+                                        <input type="text" id="name" name="name" value="<%= name %>">
+                                </div>
+                                <div style="margin-bottom: 5px;">
+                                        <label for="price">Цена: </label>
+                                        <input type="text" id="price" name="price" value="<%= price %>">
+                                </div>
+                                <div style="margin-bottom: 5px;">
+                                        <label for="description">Описание: </label>
+                                        <textarea id="description" name="description" value="<%= description %>"></textarea>
+                                </div>
+                                <div>
+                                        <input type="button" id="btn" value="<%= edit ? 'Редактировать': 'Добавить' %> контакт">
+                                </div>
+                        </form>
+                </script>
+                <script src="{{ asset('js/main.js') }}"></script>
+                <script src="{{ asset('js/models.js') }}"></script>
+                <script src="{{ asset('js/ProductCollection.js') }}"></script>
+                <script src="{{ asset('js/views/showProductsView.js') }}"></script>
+                <script src="{{ asset('js/views/showProductView.js') }}"></script>
+                <script src="{{ asset('js/views/AddProductView.js') }}"></script>
+                <script src="{{ asset('js/views/UpdateProductView.js') }}"></script>
+                <script src="{{ asset('js/router.js') }}"></script>
+                <script>
+                        new Router();
+                        Backbone.history.start();
+
+//                        products = new Products();
+                        /*products.fetch().then(function() {
+                                console.log("1");
+                        //        new showProductsView({ collection: products });*!/
+                                new AddProductView({ collection: products });
+                        });*/
+                </script>
+        {% endblock %}
+{% endblock %}

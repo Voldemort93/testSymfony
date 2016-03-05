@@ -1,0 +1,23 @@
+{
+  "name": "testSymfony",
+  "version": "1.0.0",
+  "description": "Test project",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Voldemort93/testSymfony.git"
+  },
+  "author": "Vladimir Kozelskyi",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Voldemort93/testSymfony/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jst": "~1.0.0",
+    "grunt-contrib-concat": "~1.0.0",
+    "grunt-contrib-uglify": "~1.0.0"
+  }
+}
