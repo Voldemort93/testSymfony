@@ -9,7 +9,8 @@ showProductsView = Backbone.View.extend({
     },
     events: {
     },
-    template: _.template($('#tplMain').html()),
+    //template: _.template($('#tplMain').html()),
+    template: this["JST"]['templates/tplMain.tpl'],
     render: function() {
         var _this = this;
         this.$el.html(this.template());

@@ -5,7 +5,8 @@
 AddProductView = Backbone.View.extend({
     initialize: function() {
     },
-    template: _.template($('#tplAddProduct').html()),
+    //template: _.template($('#tplAddProduct').html()),
+    template: this["JST"]["templates/tplAddProduct.tpl"],
     events: {
         'click #btn' : 'addProduct'
     },
@@ -41,7 +42,8 @@ UpdateProductView = Backbone.View.extend({
         console.log(this.$el.data('#name'));
         $('#content').html('');
     },
-    template: _.template($('#tplAddProduct').html()),
+    //template: _.template($('#tplAddProduct').html()),
+    template: this["JST"]["templates/tplAddProduct.tpl"],
     events: {
         'click #btn': 'updateProduct'
     },
@@ -73,7 +75,8 @@ UpdateProductView = Backbone.View.extend({
 
 showProductView = Backbone.View.extend({
     tagName: 'tr',
-    template: _.template($('#tplGet').html()),
+    //template: _.template($('#tplGet').html()),
+    template: this["JST"]["templates/tplGet.tpl"],
     events:{
         'click [data-bind=del]': 'del'
     },
@@ -102,7 +105,8 @@ showProductsView = Backbone.View.extend({
     },
     events: {
     },
-    template: _.template($('#tplMain').html()),
+    //template: _.template($('#tplMain').html()),
+    template: this["JST"]['templates/tplMain.tpl'],
     render: function() {
         var _this = this;
         this.$el.html(this.template());

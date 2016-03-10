@@ -6,7 +6,8 @@ UpdateProductView = Backbone.View.extend({
         console.log(this.$el.data('#name'));
         $('#content').html('');
     },
-    template: _.template($('#tplAddProduct').html()),
+    //template: _.template($('#tplAddProduct').html()),
+    template: this["JST"]["templates/tplAddProduct.tpl"],
     events: {
         'click #btn': 'updateProduct'
     },

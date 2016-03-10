@@ -5,7 +5,8 @@
 AddProductView = Backbone.View.extend({
     initialize: function() {
     },
-    template: _.template($('#tplAddProduct').html()),
+    //template: _.template($('#tplAddProduct').html()),
+    template: this["JST"]["templates/tplAddProduct.tpl"],
     events: {
         'click #btn' : 'addProduct'
     },

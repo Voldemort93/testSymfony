@@ -4,7 +4,8 @@
 
 showProductView = Backbone.View.extend({
     tagName: 'tr',
-    template: _.template($('#tplGet').html()),
+    //template: _.template($('#tplGet').html()),
+    template: this["JST"]["templates/tplGet.tpl"],
     events:{
         'click [data-bind=del]': 'del'
     },
